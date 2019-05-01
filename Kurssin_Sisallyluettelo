@@ -1,0 +1,44 @@
+OSA 6.
+
+OSA 7.
+1. Ohjelmointiparadigmoja
+2. Algoritmiikkaa
+3. Ohjelmien automaattinen testaaminen
+
+OSA 8.
+1 Object
+2 Luokan periminen
+3 Rajapinta
+4 Olioiden monimuotoisuus
+
+OSA 9.
+1 Kokoelmien käsittely arvojen virtana
+2 Valmis rajapinta Comparable
+3 Muutamia yleishyödyllisiä tekniikoita.
+
+OSA 10.
+1 Luokkakaaviot
+2 Pakkaukset
+3 Poikkeukset
+4 Tiedostojen käsittely
+
+OSA 11.
+1 Geneeriset tyyppiparametrit
+2 ArrayList ja Hajautustaulu
+3 Satunnaisuus ohjelmissa
+4 Moniulotteinen tieto
+
+Osa 12.
+1 Graafiset käyttöliittymät
+2 Käyttöliittymäkomponentit ja niiden asettelu
+3 Tapahtumien käsittely
+4 Käynnistysparametreja sovellukselle
+5 Useampi näkymä
+
+Osa 13.
+1 Tiedon visualisointi
+2 Multimedian käyttö sovelluksissa
+
+Osa 14.
+1 Simulaatiot ja toistuva piirtaminen
+2 Maven ja kolmannen osapuolen kirjastot
