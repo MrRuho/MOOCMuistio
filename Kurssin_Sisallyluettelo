@@ -1,24 +1,58 @@
-OSA 6.
-
-OSA 7.
-1. Ohjelmointiparadigmoja
-2. Algoritmiikkaa
-3. Ohjelmien automaattinen testaaminen
-
 OSA 8.
-1 Object
-2 Luokan periminen
-3 Rajapinta
-4 Olioiden monimuotoisuus
+  1 Object
+    .equals
+    .hashCode
+  
+  2 Luokan periminen
+    .Näkyvyysmääreet private, protected ja public
+    .Yliluokan konstruktorin kutsuminen
+    .Yliluokan metodin kutsuminen
+    .Olion todellinen tyyppi määrää suoritettavan metodin
+    .Abstraktit luokat
+  
+  3 Rajapinta
+    .Rajapinta muuttujan tyyppinä
+    .Rajapinta metodin parametrina
+    .Rajapinta metodin paluuarvona
+    .Valmiit rajapinnat (List, Map, Set)
+    .Collection-rajapinta
+    
+  4 Olioiden monimuotoisuus
 
+*****************************************************
 OSA 9.
-1 Kokoelmien käsittely arvojen virtana
-2 Valmis rajapinta Comparable
-3 Muutamia yleishyödyllisiä tekniikoita.
-
+  1 Kokoelmien käsittely arvojen virtana
+    .Lambda-lauseke
+    .Virran metodit
+    .Pääteoperaatiot
+    .Välioperaatiot
+    .Oliot ja virta
+    .Tiedostot ja virta
+  
+  2 Valmis rajapinta Comparable
+    .Järjestämismetodi lambda-lausekkeena
+    .Järjestäminen useamman asian perusteella
+  
+  3 Muutamia yleishyödyllisiä tekniikoita.
+    .For-toistolause
+    .StringBuilder
+    .Säännölliset lausekkeet
+    .Lueteltu tyyppi eli Enum
+    .Iteraattori
+  
+*********************************************************
 OSA 10.
-1 Luokkakaaviot
-2 Pakkaukset
+  1 Luokkakaaviot
+    .Luokan ja sen attribuuttien kuvaaminen
+    .Luokan konstruktorin kuvaaminen
+    .Luokan metodien kuvaaminen
+    .Luokkien väliset yhteydet
+    .Perintä luokkakaavioissa
+    .Rajapinnat luokkakaavioissa
+    
+  2 Pakkaukset
+    .Hakemistorakenne tiedostojärjestelmässä
+    
 3 Poikkeukset
 4 Tiedostojen käsittely
 
@@ -42,3 +76,47 @@ Osa 13.
 Osa 14.
 1 Simulaatiot ja toistuva piirtaminen
 2 Maven ja kolmannen osapuolen kirjastot
+
+++++++++++++++++++++++++++++++++
+Minka tyyppistä ja mistä.
+for (String avain: avainKokoelma) {
+    System.out.println(avain);
+}
+-------------------------------
+Jakojäännos
+lkm = 17%3;  // arvo on 2
+jaollinen
+luku % 3 == 0
+-------------------------------
+Filen luku.
+try (Scanner tiedostonLukija = new Scanner(new File("tiedosto.txt"))) {
+    while (tiedostonLukija.hasNextLine()) {
+        // luetaan yksi rivi
+        String rivi = tiedostonLukija.nextLine();
+        // tulostetaan luettu rivi
+        System.out.println(rivi);
+    }
+} catch (Exception e) {
+    System.out.println("Virhe: " + e.getMessage());
+}
+Tiedostot ja virta
+try {
+    Files.lines(Paths.get("tiedosto.txt")).forEach(rivi -> rivit.add(rivi));
+} catch (Exception e) {
+    System.out.println("Virhe: " + e.getMessage());
+}
+-------------------------------
+Luokanperiminen.
+public class Moottori extends Osa{}
+Kutsuminen.
+super
+-------------------------------
+Abstraktit luokat.
+public abstract class Toiminto{}
+-------------------------------
+Rajapinta.
+public interface Luettava {}
+
+rajapinnan käyttö.
+public class Tekstiviesti implements Luettava {}
+-------------------------------
