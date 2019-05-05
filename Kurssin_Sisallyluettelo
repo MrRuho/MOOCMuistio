@@ -1,86 +1,11 @@
-OSA 8.
-  1 Object
-    .equals
-    .hashCode
-  
-  2 Luokan periminen
-    .Näkyvyysmääreet private, protected ja public
-    .Yliluokan konstruktorin kutsuminen
-    .Yliluokan metodin kutsuminen
-    .Olion todellinen tyyppi määrää suoritettavan metodin
-    .Abstraktit luokat
-  
-  3 Rajapinta
-    .Rajapinta muuttujan tyyppinä
-    .Rajapinta metodin parametrina
-    .Rajapinta metodin paluuarvona
-    .Valmiit rajapinnat (List, Map, Set)
-    .Collection-rajapinta
-    
-  4 Olioiden monimuotoisuus
-
-*****************************************************
-OSA 9.
-  1 Kokoelmien käsittely arvojen virtana
-    .Lambda-lauseke
-    .Virran metodit
-    .Pääteoperaatiot
-    .Välioperaatiot
-    .Oliot ja virta
-    .Tiedostot ja virta
-  
-  2 Valmis rajapinta Comparable
-    .Järjestämismetodi lambda-lausekkeena
-    .Järjestäminen useamman asian perusteella
-  
-  3 Muutamia yleishyödyllisiä tekniikoita.
-    .For-toistolause
-    .StringBuilder
-    .Säännölliset lausekkeet
-    .Lueteltu tyyppi eli Enum
-    .Iteraattori
-  
-*********************************************************
-OSA 10.
-  1 Luokkakaaviot
-    .Luokan ja sen attribuuttien kuvaaminen
-    .Luokan konstruktorin kuvaaminen
-    .Luokan metodien kuvaaminen
-    .Luokkien väliset yhteydet
-    .Perintä luokkakaavioissa
-    .Rajapinnat luokkakaavioissa
-    
-  2 Pakkaukset
-    .Hakemistorakenne tiedostojärjestelmässä
-    
-3 Poikkeukset
-4 Tiedostojen käsittely
-
-OSA 11.
-1 Geneeriset tyyppiparametrit
-2 ArrayList ja Hajautustaulu
-3 Satunnaisuus ohjelmissa
-4 Moniulotteinen tieto
-
-Osa 12.
-1 Graafiset käyttöliittymät
-2 Käyttöliittymäkomponentit ja niiden asettelu
-3 Tapahtumien käsittely
-4 Käynnistysparametreja sovellukselle
-5 Useampi näkymä
-
-Osa 13.
-1 Tiedon visualisointi
-2 Multimedian käyttö sovelluksissa
-
-Osa 14.
-1 Simulaatiot ja toistuva piirtaminen
-2 Maven ja kolmannen osapuolen kirjastot
-
 ++++++++++++++++++++++++++++++++
 Minka tyyppistä ja mistä.
 for (String avain: avainKokoelma) {
     System.out.println(avain);
+}
+
+for (Elokuva e: elokuvat) {
+    System.out.println(e);
 }
 -------------------------------
 Jakojäännos
@@ -88,7 +13,15 @@ lkm = 17%3;  // arvo on 2
 jaollinen
 luku % 3 == 0
 -------------------------------
-Filen luku.
+Comparator<Elokuva> vertailija = Comparator
+              .comparing(Elokuva::getJulkaisuvuosi)
+              .thenComparing(Elokuva::getNimi);
+
+Collections.sort(elokuvat, vertailija);
+
+-------------------------------
+
+FILEN LUKU
 try (Scanner tiedostonLukija = new Scanner(new File("tiedosto.txt"))) {
     while (tiedostonLukija.hasNextLine()) {
         // luetaan yksi rivi
@@ -99,24 +32,28 @@ try (Scanner tiedostonLukija = new Scanner(new File("tiedosto.txt"))) {
 } catch (Exception e) {
     System.out.println("Virhe: " + e.getMessage());
 }
-Tiedostot ja virta
+
+TIEDOSTOT JA VIRTA
 try {
-    Files.lines(Paths.get("tiedosto.txt")).forEach(rivi -> rivit.add(rivi));
+    Files.lines(Paths.get("tiedosto.txt"))
+            .forEach(rivi -> rivit.add(rivi)); //
 } catch (Exception e) {
     System.out.println("Virhe: " + e.getMessage());
 }
 -------------------------------
-Luokanperiminen.
+ StringBuilder valitiedosto = new StringBuilder();
+-------------------------------
+LUOKANPERIMINEN.
 public class Moottori extends Osa{}
 Kutsuminen.
 super
 -------------------------------
-Abstraktit luokat.
+ABSTRACTIT LUOKAT
 public abstract class Toiminto{}
 -------------------------------
-Rajapinta.
+RAJAPINTA.
 public interface Luettava {}
 
-rajapinnan käyttö.
+RAJAPINNAN KYTTO.
 public class Tekstiviesti implements Luettava {}
 -------------------------------
