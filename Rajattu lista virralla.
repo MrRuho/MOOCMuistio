@@ -1,0 +1,14 @@
+List<Henkilo> henkilot = new ArrayList<>();
+        henkilot.add(new Henkilo("Matti", 15, "Mies"));
+        henkilot.add(new Henkilo("Sami", 20,"Mies"));
+        henkilot.add(new Henkilo("Kaisa", 40, "Nainen"));
+        henkilot.add(new Henkilo("Joonas", 50,"Mies"));
+        henkilot.add(new Henkilo("Saima", 15,"Nainen"));
+        henkilot.add(new Henkilo("Matti", 22,"Nainen"));
+        
+        // Tulostaa vain yli kaksikymmenta vuotiaiden henkiloiden nimet.
+        henkilot.stream()
+                .filter(ika -> ika.getIka()> 20) // rajataan listaa ian perusteella.
+                .map(henkilo -> henkilo.getNimi()) // muutetaan olio virta nimi virraksi. // jos nama olisivat toistenpain niin getNimea ei enaa loytyisi.
+                .sorted() // jarjestaa merkkijonot
+                .forEach(henkilo -> System.out.println(henkilo)); // tulostetaan merkkijonot foreach avulla.
