@@ -1,0 +1,34 @@
+Kerää nimet listasta. (Koe tehtava)
+
+List<String> nimia = new ArrayList<>();
+    nimia.add("Kaisa");
+    nimia.add("Samu");
+    nimia.add("Kaisa");
+    nimia.add("Mira");
+    
+    System.out.println("");
+    toistuvatNimet(nimia, 1);
+    
+    
+public static void toistuvatNimet(List lista, int kertaa){
+        int montakokertaa = 0;
+        List<String> tulostettava = new ArrayList<>();
+        for(int i = 0; i < lista.size(); i++ ){
+        // Etsittava nimi    
+            String etsittava = lista.get(i).toString();
+        
+        // katsotaan montakertaa se esiintyy listassa.
+            montakokertaa = (int) lista.stream()
+                    .filter(nimi -> nimi.equals(etsittava))
+                    .count();
+                
+        //Jos nimi toistuu kertamaaranverran niin se lisataan tulostettavien listaan, mikali nimia ei siella jo ole.
+           if(!tulostettava.contains(etsittava)&& montakokertaa == kertaa){
+               tulostettava.add(etsittava);
+            }
+        }
+        
+        String nimet = tulostettava.stream()
+                .reduce("",(edellinen, sana)-> edellinen + sana + "\n");
+            System.out.println(nimet);
+    }
