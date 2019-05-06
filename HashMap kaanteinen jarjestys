@@ -1,0 +1,17 @@
+HashMap<String, String> sanaLista = new HashMap<>();
+        sanaLista.put("Avain", "Arvo");
+        sanaLista.put("Avain2", "Arvo2");
+        sanaLista.put("Avain3","Arvo3");
+        String tulos = kaanteinenLista(sanaLista).toString();
+        System.out.println(sanaLista);
+        System.out.println(tulos);
+        
+  public static HashMap<String, String> kaanteinenLista (HashMap lista){
+        
+        HashMap<String, String> kaanteinenLista = new HashMap<>();
+
+        for(Object key: lista.keySet()){      
+            kaanteinenLista.put(lista.get(key).toString(), (String) key);
+        }
+        return kaanteinenLista;    
+    }       
