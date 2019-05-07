@@ -1,0 +1,3 @@
+henkilot.stream().sorted((h1, h2) -> {
+    return h1.getSyntymavuosi() - h2.getSyntymavuosi();
+}).forEach(h -> System.out.println(h.getNimi()));
