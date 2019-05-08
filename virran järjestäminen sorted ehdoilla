@@ -1,3 +1,14 @@
 henkilot.stream().sorted((h1, h2) -> {
     return h1.getSyntymavuosi() - h2.getSyntymavuosi();
 }).forEach(h -> System.out.println(h.getNimi()));
+
+public void tulostaPituusjarjestyksessa(){
+       
+       kasvit.stream()
+                // isoimmasta pienimpaan
+               .sorted((k1, k2)->{return k2.getPituus()-k1.getPituus();})
+               // Valitaan tiedot mitka esitetaan syotteessa.
+               .map(k -> k.getNimi() +", "+k.getPituus())
+               .forEach(k ->System.out.println(k));
+      
+   }
