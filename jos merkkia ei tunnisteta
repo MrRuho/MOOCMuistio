@@ -1,0 +1,3 @@
+// Tunnistaa kaikki merkit.
+import java.nio.charset.StandardCharsets;
+Files.lines(Paths.get("vastaukset_avoimena_datana.csv"), StandardCharsets.ISO_8859_1)
