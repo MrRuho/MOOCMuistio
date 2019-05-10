@@ -1,0 +1,7 @@
+Virroista.
+//Voit kayttaa vasta forEach:ssa siivoamista.
+ Files.lines(Paths.get("tarina.txt"))
+                            .skip(1)
+                            .map(t -> t.toLowerCase()) 
+                            .map( rivi -> rivi.split(";"))
+                            .forEach(rivi -> kaikkisanat.add(rivi[3].replaceAll("[^a-ö]", "")));
