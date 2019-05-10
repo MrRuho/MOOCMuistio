@@ -1,0 +1,40 @@
+public boolean binaariHaku(int etsittavaNumero, int[]taulukko){
+        
+        int pieninArvo = 0;
+        int keskikohta = taulukko.length /2;
+        int suurinArvo = taulukko.length;
+   
+        while(true){
+            
+            //jos jalella on vain pienin tai isoin numero, tai etsittavan taulukon koko on vain kolme
+            if(pieninArvo +1 == keskikohta && suurinArvo -1 == keskikohta){
+                 if(taulukko[keskikohta] == etsittavaNumero){
+                    return true;
+                }
+                if(taulukko[pieninArvo] == etsittavaNumero){
+                    return true;
+                }
+                if(taulukko[suurinArvo -1] == etsittavaNumero){
+                    return true;
+                }
+                break;
+            }
+            // onko etsitty arvo keskella.
+            if(taulukko[keskikohta] == etsittavaNumero){
+                return true;
+            }
+            //jos ei loydy, siirrytaan taulukossa joko ylos tai alaspain.
+            //jos suurempi
+            if(taulukko[keskikohta]<etsittavaNumero){
+                pieninArvo = keskikohta;
+                keskikohta = (keskikohta + suurinArvo)/2;
+                
+            } else {
+            //jos Pienempi kuin keskikohta.
+                suurinArvo = keskikohta;
+                keskikohta = (pieninArvo + keskikohta)/2;        
+            }                   
+        }
+        
+     return false;
+    }
