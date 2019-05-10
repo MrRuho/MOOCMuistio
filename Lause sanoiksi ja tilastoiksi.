@@ -1,0 +1,68 @@
+// Lause kerataan listaan, joka puretaan HasMappiin ,joka puolestaan puretaan toiseen listaan joka sisaltaa luokan sanalle.
+
+
+package hasmappivirtoja;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+
+public class Hasmappivirtoja {
+
+  
+    public static void main(String[] args) throws IOException {
+        // Keraa lasten tarinat ja muodosta niissä kaytetyista sanoista lista.
+        // Yleisimmant sanat arvo järjestyksessä. Mikä on lasten keski-ikä?
+        // Laita lapset ikäjärjestykseen.
+        // laita pojat ensin ja sitten työt, ikä järjestykseen.
+        
+        HashMap<String, Integer> sanoja = new HashMap<>();
+        ArrayList<String> kaikkisanat = new ArrayList<>();
+        ArrayList<Sana> sanaEsitys = new ArrayList<>();
+        
+        try {
+            Files.lines(Paths.get("tarina.txt"))
+                            .skip(1)    
+                            .map( rivi -> rivi.split(";"))
+                            .forEach(rivi -> kaikkisanat.add(rivi[3]));
+                    
+                    
+            } catch (Exception e) {
+                    System.out.println("Virhe: " + e.getMessage());
+            }
+//--------------------------------------------------        
+        //kaydaan kaikki sanat lapi
+        for(int i = 0; i < kaikkisanat.size(); i ++){
+            // muuttaa sanat paloiksi.
+            String[]muokattu = kaikkisanat.get(i).toLowerCase().replace(".", "").split(" ");    
+            // Asettaa sanat hasmappiin mikali niita ei siella jo ole.
+            for(int y = 0; y < muokattu.length; y ++){
+                //tarkistetaan loytyyko jo haspasista vai ei.
+                if(sanoja.containsKey(muokattu[y])){
+                    sanoja.replace(muokattu[y], sanoja.get(muokattu[y])+1);
+                } else if(muokattu[y].length() > 1){
+                    //jos ei loydy niin asetetaan hasmappiin.
+                    sanoja.put(muokattu[y], 1);
+                }
+            }
+        }
+//---------------------------------------------------
+        
+        //Kaikki tarinat.
+        kaikkisanat.stream()
+                .forEach(sana ->System.out.println(sana));
+        
+        //Esitä Hasmapin sanat arvojarjestyksessa. Tee sana luokka joka sisaltaa sanan ja sen kuinkamontakertaa se esiintyy.
+         for(Object key: sanoja.keySet()){
+             sanaEsitys.add(new Sana((String) key,sanoja.get(key)));
+         }
+        //Esita  sana luokka sanojen maara jarjestyksessa. Kymmenen ensimmaista.
+         sanaEsitys.stream() 
+                   .sorted((k1, k2)->{return k2.getToistokertoja()-k1.getToistokertoja();})
+                   .limit(10)
+                   .forEach(s ->System.out.println(s));      
+    }
+}
