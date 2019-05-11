@@ -1,24 +1,12 @@
-int linenumber = 0;
-try{		
-    		File file = new File("UFO.txt");
-    		
-    		if(file.exists()){		
-    		    FileReader fr = new FileReader(file);
-    		    LineNumberReader lnr = new LineNumberReader(fr);  		    
-    		   // int linenumber = 0;
-    		    
-    	            while (lnr.readLine() != null){
-    	        	linenumber++;
-    	            }
-    	 
-    	            System.out.println("Havaintoja: " + linenumber);
-    	 
-    	            lnr.close();
-                    
-    		}else{
-    			 System.out.println("tiedostoa ei voi avata");
-    		}
-    		
-    	}catch(IOException e){
-    		e.printStackTrace();
-    	}
+int riveja = 0;
+        try (Scanner tiedostonLukija = new Scanner(new File("UFO.txt"))) {
+            while (tiedostonLukija.hasNextLine()) {
+            // Luetaan yksi rivi. Rivi taytyy lukea tai muuten jaa ikuiseen looppiin.
+            String rivi = tiedostonLukija.nextLine();
+            riveja ++;
+            
+            }
+        } catch (Exception e) {
+                System.out.println("Virhe: " + e.getMessage());
+        }
+        System.out.println(riveja);
