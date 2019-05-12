@@ -2,9 +2,9 @@
 
 public class Sopraano extends Henkilo implements Laulava {
 
-// super poimii perittavasta luokasta.. tämä taytyy olla toimiakseen.
+
  public Sopraano(String nimi){
-       super(nimi);
+       super(nimi);  // HUOM! super poimii perittavasta luokasta.. tämä taytyy olla toimiakseen.
     }
     
 // kaikki interfasen metodit taytyy olla käytössa sillä luokalla joka sitä käyttää.
