@@ -1,0 +1,15 @@
+// perii luokan henkilo ja toteuttaa interfasea laulava.
+
+public class Sopraano extends Henkilo implements Laulava {
+
+// super poimii perittavasta luokasta.. tämä taytyy olla toimiakseen.
+ public Sopraano(String nimi){
+       super(nimi);
+    }
+    
+// kaikki interfasen metodit taytyy olla käytössa sillä luokalla joka sitä käyttää.
+    @Override
+    public void laula(String laula) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+}
