@@ -17,3 +17,7 @@
                     }
                 }
    //---------------------------------------------------------------------
+   // Päivitetaan vanhaa tietoa.
+   map.put(key, map.get(key) + 1);
+   havaintoMuodot.replace(rivi[5], havaintoMuodot.get(rivi[5]) + 1);
+   //----------------------------------------------------------------------
