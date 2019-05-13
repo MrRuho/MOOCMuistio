@@ -1,0 +1,19 @@
+ //Etsitään tiettyjä arvoja tai avaimia ja tulostetaan ne.
+ HashMap<String, Integer> varaukset = new HashMap<>();
+        varaukset.put("Ville", 15);
+        varaukset.put("Jarmo", 15);
+        varaukset.put("Tiina", 20);
+        int varaus = 15;
+               
+            for(Map.Entry<String,Integer> entry: varaukset.entrySet()){
+                 // jos avain hahmapista loytyy etsitynlainen arvo, niin tulostaa avaimen ja arvon.
+                    if(varaus == entry.getValue())
+                    {
+                        System.out.println(entry.getKey() + " " + entry.getValue());
+                    }
+                 // jos mapista loytyy etsitynlainen avain, niin tulostaa avaimen ja arvon.
+                    if(entry.getKey().contains("Etsitty")){
+                        
+                    }
+                }
+   //---------------------------------------------------------------------
