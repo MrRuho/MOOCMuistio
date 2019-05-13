@@ -21,3 +21,6 @@
    map.put(key, map.get(key) + 1);
    havaintoMuodot.replace(rivi[5], havaintoMuodot.get(rivi[5]) + 1);
    //----------------------------------------------------------------------
+   for(Object key: lista.keySet()){      
+            kaanteinenLista.put(lista.get(key).toString(), (String) key);
+        }
